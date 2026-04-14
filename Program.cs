@@ -1,7 +1,6 @@
 using System.Text;
 using Itransition_Task4;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -13,8 +12,6 @@ var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"
 
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseNpgsql(connectionString));
-
-
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -50,11 +47,6 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
     db.Database.EnsureCreated(); 
 }
-
-
-
-
-
 
 
 if (!app.Environment.IsDevelopment())
