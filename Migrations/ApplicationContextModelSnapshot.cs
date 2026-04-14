@@ -33,6 +33,10 @@ namespace Itransition_Task4.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("text");
 
+                    b.Property<string>("HashedPassword")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("LastLoginTime")
                         .HasColumnType("timestamp with time zone");
 
@@ -54,7 +58,8 @@ namespace Itransition_Task4.Migrations
                         {
                             Id = 1,
                             Email = "admin@example.com",
-                            LastLoginTime = new DateTime(2026, 4, 13, 21, 32, 31, 205, DateTimeKind.Utc).AddTicks(8643),
+                            HashedPassword = "a",
+                            LastLoginTime = new DateTime(2026, 4, 14, 17, 35, 7, 714, DateTimeKind.Utc).AddTicks(6202),
                             Name = "Admin",
                             Statuses = 1
                         },
@@ -62,7 +67,8 @@ namespace Itransition_Task4.Migrations
                         {
                             Id = 2,
                             Email = "john@example.com",
-                            LastLoginTime = new DateTime(2026, 4, 12, 21, 32, 31, 205, DateTimeKind.Utc).AddTicks(9666),
+                            HashedPassword = "b",
+                            LastLoginTime = new DateTime(2026, 4, 13, 17, 35, 7, 714, DateTimeKind.Utc).AddTicks(7526),
                             Name = "John Doe",
                             Statuses = 0
                         },
@@ -70,7 +76,8 @@ namespace Itransition_Task4.Migrations
                         {
                             Id = 3,
                             Email = "jane@example.com",
-                            LastLoginTime = new DateTime(2026, 4, 13, 16, 32, 31, 205, DateTimeKind.Utc).AddTicks(9732),
+                            HashedPassword = "c",
+                            LastLoginTime = new DateTime(2026, 4, 14, 12, 35, 7, 714, DateTimeKind.Utc).AddTicks(7617),
                             Name = "Jane Smith",
                             Statuses = 2
                         },
@@ -78,7 +85,8 @@ namespace Itransition_Task4.Migrations
                         {
                             Id = 4,
                             Email = "ivan@example.com",
-                            LastLoginTime = new DateTime(2026, 4, 13, 21, 32, 31, 205, DateTimeKind.Utc).AddTicks(9746),
+                            HashedPassword = "d",
+                            LastLoginTime = new DateTime(2026, 4, 14, 17, 35, 7, 714, DateTimeKind.Utc).AddTicks(7632),
                             Name = "Ivan Ivanov",
                             Statuses = 1
                         });

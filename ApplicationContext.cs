@@ -20,6 +20,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Id = 1, 
                 Name = "Admin", 
                 Email = "admin@example.com", 
+                HashedPassword = "a",
                 LastLoginTime = DateTime.UtcNow, 
                 Statuses = Status.Active 
             },
@@ -28,6 +29,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Id = 2, 
                 Name = "John Doe", 
                 Email = "john@example.com", 
+                HashedPassword = "b",
                 LastLoginTime = DateTime.UtcNow.AddDays(-1), 
                 Statuses = Status.Unverified 
             },
@@ -36,6 +38,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Id = 3, 
                 Name = "Jane Smith", 
                 Email = "jane@example.com", 
+                HashedPassword = "c",
                 LastLoginTime = DateTime.UtcNow.AddHours(-5), 
                 Statuses = Status.Blocked 
             },
@@ -44,6 +47,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Id = 4, 
                 Name = "Ivan Ivanov", 
                 Email = "ivan@example.com", 
+                HashedPassword = "d",
                 LastLoginTime = DateTime.UtcNow, 
                 Statuses = Status.Active 
             }
