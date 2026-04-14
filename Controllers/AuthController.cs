@@ -38,8 +38,26 @@ public class AuthController(ApplicationContext db) : Controller
     
     [HttpPost]
     [AllowAnonymous]
-    public ActionResult Register()
+    public ActionResult Register([FromBody] RegisterViewModel model)
     {
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        if (model.Password != model.ConfirmPassword)
+            return BadRequest("Passwords do not match");
+        
+        if (db.Users.Any(u => u.Email == model.Email))
+            return BadRequest("Email is already taken");
+        
+        var user = new User
+        {
+            Name = model.Name,
+            Email = model.Email,
+            HashedPassword = PasswordHasher.HashPassword(model.Password)
+        };
+        
+        db.Users.Add(user);
+        db.SaveChanges();
+        
         return Ok();
     }
     

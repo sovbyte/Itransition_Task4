@@ -7,7 +7,7 @@ public class User
     public string? Email { get; set; }
     public string HashedPassword { get; set; }
     public DateTime LastLoginTime { get; set; } = DateTime.UtcNow;
-    public Status Statuses { get; set; }
+    public Status Statuses { get; set; } = Status.Unverified;
 }
 
 public enum Status
