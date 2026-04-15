@@ -1,5 +1,5 @@
 using System.Text;
-using Itransition_Task4;
+using DotNetEnv;
 using Itransition_Task4.Data;
 using Itransition_Task4.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-var builder = WebApplication.CreateBuilder(args);
+Env.Load();
 
-DotNetEnv.Env.Load();
+var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 
@@ -45,6 +45,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 

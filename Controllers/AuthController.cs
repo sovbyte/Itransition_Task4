@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Itransition_Task4.Controllers;
 
-public class AuthController(IUserService userService, IJwtService jwtService, IUserRepository userRepository) : Controller
+public class AuthController(IUserService userService, IJwtService jwtService, IUserRepository userRepository, IEmailService emailService) : Controller
 {
     [HttpPost("login")]
     [AllowAnonymous]
@@ -46,6 +46,8 @@ public class AuthController(IUserService userService, IJwtService jwtService, IU
         if (allUsers.Any(u => u.Email == model.Email))
             return BadRequest("Email is already registered");
         
+        var token = Guid.NewGuid().ToString();
+        
         var user = new User
         {
             Name = model.Name,
@@ -56,7 +58,49 @@ public class AuthController(IUserService userService, IJwtService jwtService, IU
         };
 
         await userRepository.AddAsync(user);
+
+        var confirmUrl = $"http://localhost:5121/confirm-email?token={token}";
         
-        return Ok();
+        await emailService.SendEmailAsync(user.Email, "Confirm your account",
+            $"Please confirm your registration by <a href='{confirmUrl}'>clicking here</a>.");
+
+        return Ok("User registered. Please check your email.");
+    }
+    
+    [HttpGet("confirm-email")]
+    [AllowAnonymous]
+    public async Task<IActionResult> ConfirmEmail([FromQuery] string token)
+    {
+        if (string.IsNullOrEmpty(token)) return BadRequest("Token is missing");
+
+        var allUsers = await userRepository.GetAllAsync();
+        var user = allUsers.FirstOrDefault(u => u.ConfirmationToken == token);
+
+        if (user == null) 
+            return BadRequest("Invalid or expired token");
+
+        user.Status = Status.Active;
+        user.ConfirmationToken = null; 
+
+        await userRepository.UpdateRangeAsync([user]);
+
+        return Content("Success! Your email is confirmed. Now you can log in.");
+    }
+    
+    [HttpPost("forgot-password")]
+    public async Task<IActionResult> ForgotPassword([FromBody] string email)
+    {
+        var user = await userRepository.GetByEmailAsync(email);
+        if (user == null) return Ok();
+
+        var token = Guid.NewGuid().ToString();
+        user.ResetToken = token; 
+        await userRepository.UpdateRangeAsync([user]);
+
+        var resetUrl = $"http://localhost:5121/reset-password?token={token}";
+        await emailService.SendEmailAsync(user.Email, "Reset Password", 
+            $"Click <a href='{resetUrl}'>here</a> to reset your password.");
+
+        return Ok("Reset link sent to your email.");
     }
 }

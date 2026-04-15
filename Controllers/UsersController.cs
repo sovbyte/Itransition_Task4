@@ -44,7 +44,7 @@ public class UsersController(IUserService userService) : Controller
         return Json(new { success = true });
     }
     
-    [HttpPost]
+    [HttpDelete]
     public async Task<IActionResult> Delete([FromBody] List<int> ids)
     {
         if (ids == null || !ids.Any()) 
