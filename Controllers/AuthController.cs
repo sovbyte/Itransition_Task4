@@ -11,7 +11,7 @@ namespace Itransition_Task4.Controllers;
 
 public class AuthController(ApplicationContext db) : Controller
 {
-    [HttpPost]
+    [HttpPost("login")]
     [AllowAnonymous]
     public ActionResult Login([FromBody] LoginViewModel model)
     {
@@ -36,9 +36,9 @@ public class AuthController(ApplicationContext db) : Controller
         return Ok(new { token = GenerateJwtToken(user) });
     }
     
-    [HttpPost]
+    [HttpPost("register")]
     [AllowAnonymous]
-    public ActionResult Register([FromBody] RegisterViewModel model)
+    public IActionResult Register([FromBody] RegisterViewModel model)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
 
