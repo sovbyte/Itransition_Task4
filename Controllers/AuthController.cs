@@ -10,84 +10,53 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Itransition_Task4.Controllers;
 
-public class AuthController(ApplicationContext db) : Controller
+public class AuthController(IUserService userService, IJwtService jwtService, IUserRepository userRepository) : Controller
 {
     [HttpPost("login")]
     [AllowAnonymous]
-    public ActionResult Login([FromBody] LoginViewModel model)
+    public async Task<IActionResult>Login([FromBody] LoginViewModel model)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
         
-        var user = db.Users.FirstOrDefault(u => u.Email == model.Email);
+        var allUsers = await userRepository.GetAllAsync();
+        var user = allUsers.FirstOrDefault(u => u.Email == model.Email);
         
-        if (user == null)
-            return Unauthorized("Wrong email or password");
-        
-        var isPasswordValid = PasswordHasher.VerifyPassword(model.Password, user.HashedPassword);
-        
-        if (!isPasswordValid)
+        if (user == null || !PasswordHasher.VerifyPassword(model.Password, user.HashedPassword))
             return Unauthorized("Wrong email or password");
         
         if (user.Status == Status.Blocked)
             return Forbid("Account is blocked");
         
         user.LastLoginTime = DateTime.UtcNow;
-        db.SaveChanges();
+        await userRepository.UpdateRangeAsync([user]);
         
-        return Ok(new { token = GenerateJwtToken(user) });
+        return Ok(new { token = jwtService.GenerateJwtToken(user) });
     }
     
     [HttpPost("register")]
     [AllowAnonymous]
-    public IActionResult Register([FromBody] RegisterViewModel model)
+    public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
 
         if (model.Password != model.ConfirmPassword)
             return BadRequest("Passwords do not match");
         
-        if (db.Users.Any(u => u.Email == model.Email))
-            return BadRequest("Email is already taken");
+        var allUsers = await userRepository.GetAllAsync();
+        if (allUsers.Any(u => u.Email == model.Email))
+            return BadRequest("Email is already registered");
         
         var user = new User
         {
             Name = model.Name,
             Email = model.Email,
-            HashedPassword = PasswordHasher.HashPassword(model.Password)
+            HashedPassword = PasswordHasher.HashPassword(model.Password),
+            Status = Status.Unverified,
+            RegistrationDate = DateTime.UtcNow
         };
-        
-        db.Users.Add(user);
-        db.SaveChanges();
+
+        await userRepository.AddAsync(user);
         
         return Ok();
-    }
-    
-    private static string GenerateJwtToken(User user)
-    {
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Email, user.Email ?? ""),
-            new Claim(ClaimTypes.Name, user.Name ?? "")
-        };
-
-        var key = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_KEY")!)
-        );
-
-        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-        var token = new JwtSecurityToken(
-            issuer: Environment.GetEnvironmentVariable("JWT_ISSUER"),
-            audience: Environment.GetEnvironmentVariable("JWT_AUDIENCE"),
-            claims: claims,
-
-            expires: DateTime.UtcNow.AddMinutes(
-                double.TryParse(Environment.GetEnvironmentVariable("JWT_EXPIRY_MINUTES"), out var exp) ? exp : 60
-            ),
-            signingCredentials: credentials
-        );
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
     }
 }
