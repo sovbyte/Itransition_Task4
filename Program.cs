@@ -3,6 +3,7 @@ using Itransition_Task4;
 using Itransition_Task4.Data;
 using Itransition_Task4.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -31,7 +32,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             )
         };
     });
-builder.Services.AddAuthorization();
+
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAuthorizationHandler, ActiveUserHandler>();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ActiveUser", policy => 
+        policy.Requirements.Add(new ActiveUserRequirement()));
+});
 
 builder.Services.AddControllersWithViews();
 

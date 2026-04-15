@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Itransition_Task4.Controllers;
 
 [Controller]
-[Authorize]
+[Authorize(Policy = "ActiveUser")]
 public class UsersController(IUserService userService) : Controller
 {
     public IActionResult Index() => View();
