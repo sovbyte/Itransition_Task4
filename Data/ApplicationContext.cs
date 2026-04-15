@@ -1,13 +1,12 @@
-using Microsoft.EntityFrameworkCore;
 using Itransition_Task4.Models;
 using Itransition_Task4.Services;
+using Microsoft.EntityFrameworkCore;
 
-namespace Itransition_Task4;
+namespace Itransition_Task4.Data;
 
 public class ApplicationContext(DbContextOptions<ApplicationContext> options) : DbContext(options)
 {
     public DbSet<User> Users { get; set; } = null!;
-
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -19,7 +18,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "admin@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow,
-                Statuses = Status.Active
+                Status = Status.Active
             },
             new User
             {
@@ -28,7 +27,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "john@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow.AddDays(-1),
-                Statuses = Status.Active
+                Status = Status.Active
             },
             new User
             {
@@ -37,7 +36,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "jane@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow.AddHours(-5),
-                Statuses = Status.Active
+                Status = Status.Active
             },
             new User
             {
@@ -46,7 +45,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "ivan@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow.AddDays(-3),
-                Statuses = Status.Active
+                Status = Status.Active
             });
         modelBuilder.Entity<User>(entity =>
         {

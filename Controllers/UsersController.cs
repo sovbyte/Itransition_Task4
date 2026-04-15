@@ -1,4 +1,6 @@
+using Itransition_Task4.Data;
 using Itransition_Task4.Models;
+using Itransition_Task4.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,75 +8,51 @@ namespace Itransition_Task4.Controllers;
 
 [Controller]
 [Authorize]
-public class UsersController(ApplicationContext db) : Controller
+public class UsersController(IUserService userService) : Controller
 {
+    public IActionResult Index() => View();
+    
     [HttpGet]
-    public ActionResult GetUsers()
+    public async Task<JsonResult> GetUsers()
     {
-        var usersViewModels = db.Users.Select(user => new UserViewModel
-        {
-            Id = user.Id,
-            Name = user.Name,
-            Email = user.Email,
-            LastLoginTime =  user.LastLoginTime,
-            Status = user.Statuses.ToString(),
-        }).ToList();
-        
-        return Ok(usersViewModels);
+        var users = await userService.GetUsersListAsync();
+        return Json(users);
     }
 
     [HttpPost]
-    public ActionResult BlockUsers([FromBody] List<int> ids)
+    public async Task<IActionResult> Block([FromBody] List<int> ids)
     {
-        if (ids == null || ids.Count == 0)
-            return BadRequest("No user IDs provided");
-        
-        
-        var usersToBlock = db.Users.Where(u =>  ids.Contains(u.Id)).ToList();
-
-        foreach (var user in usersToBlock)
+        if (ids == null || !ids.Any()) 
         {
-            user.Statuses = Status.Blocked;
+            return Json(new { success = false, message = "No users selected" });
         }
         
-        db.SaveChanges();
+        await userService.BlockUsersAsync(ids);
+        return Json(new { success = true });
+    }
+    
+    
+    [HttpPost]
+    public async Task<IActionResult> Unblock([FromBody] List<int> ids)
+    {
+        if (ids == null || !ids.Any()) 
+        {
+            return Json(new { success = false, message = "No users selected" });
+        }
         
-        return Ok(new {message = $"Successfully blocked {usersToBlock.Count} users"});
+        await userService.UnblockUsersAsync(ids);
+        return Json(new { success = true });
     }
     
     [HttpPost]
-    public ActionResult UnblockUsers([FromBody] List<int> ids)
+    public async Task<IActionResult> Delete([FromBody] List<int> ids)
     {
-        if (ids == null || ids.Count == 0)
-            return BadRequest("No user IDs provided");
-        
-        var usersToUnblock = db.Users.Where(u =>  ids.Contains(u.Id)).ToList();
-
-        foreach (var user in usersToUnblock)
+        if (ids == null || !ids.Any()) 
         {
-            if(user.Statuses == Status.Blocked)
-            {
-                user.Statuses = Status.Active;
-            }
+            return Json(new { success = false, message = "No users selected" });
         }
         
-        db.SaveChanges();
-        
-        return Ok(new {message = $"Successfully unblocked {usersToUnblock.Count} users"});
-    }    
-    
-    [HttpPost]
-    public ActionResult DeleteUsers([FromBody] List<int> ids)
-    {
-        if (ids == null || ids.Count == 0)
-            return BadRequest("No user IDs provided");
-        
-        var usersToDelete = db.Users.Where(u =>  ids.Contains(u.Id)).ToList();
-        
-        db.Users.RemoveRange(usersToDelete);
-        
-        db.SaveChanges();
-        
-        return Ok(new {message = $"Successfully deleted {usersToDelete.Count} users"});
+        await userService.DeleteUsersAsync(ids);
+        return Json(new { success = true });
     }
 }

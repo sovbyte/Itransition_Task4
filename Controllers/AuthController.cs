@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Itransition_Task4.Data;
 using Itransition_Task4.Models;
 using Itransition_Task4.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -27,7 +28,7 @@ public class AuthController(ApplicationContext db) : Controller
         if (!isPasswordValid)
             return Unauthorized("Wrong email or password");
         
-        if (user.Statuses == Status.Blocked)
+        if (user.Status == Status.Blocked)
             return Forbid("Account is blocked");
         
         user.LastLoginTime = DateTime.UtcNow;
