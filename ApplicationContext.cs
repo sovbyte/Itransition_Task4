@@ -19,7 +19,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "admin@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow,
-                Statuses = Status.Active
+                Status = Status.Active
             },
             new User
             {
@@ -28,7 +28,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "john@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow.AddDays(-1),
-                Statuses = Status.Active
+                Status = Status.Active
             },
             new User
             {
@@ -37,7 +37,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "jane@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow.AddHours(-5),
-                Statuses = Status.Active
+                Status = Status.Active
             },
             new User
             {
@@ -46,7 +46,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
                 Email = "ivan@example.com",
                 HashedPassword = PasswordHasher.HashPassword("a"),
                 LastLoginTime = DateTime.UtcNow.AddDays(-3),
-                Statuses = Status.Active
+                Status = Status.Active
             });
         modelBuilder.Entity<User>(entity =>
         {

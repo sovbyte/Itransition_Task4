@@ -10,7 +10,7 @@ public class UserViewModel
     
     public string Email { get; set; } = string.Empty;
     
-    public DateTime LastLoginTime { get; set; }
+    public DateTime? LastLoginTime { get; set; }
     
     public string Status { get; set; } = string.Empty;
 }

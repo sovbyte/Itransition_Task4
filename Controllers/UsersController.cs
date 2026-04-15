@@ -16,8 +16,8 @@ public class UsersController(ApplicationContext db) : Controller
             Id = user.Id,
             Name = user.Name,
             Email = user.Email,
-            LastLoginTime =  user.LastLoginTime,
-            Status = user.Statuses.ToString(),
+            LastLoginTime = user.LastLoginTime,
+            Status = user.Status.ToString(),
         }).ToList();
         
         return Ok(usersViewModels);
@@ -34,7 +34,7 @@ public class UsersController(ApplicationContext db) : Controller
 
         foreach (var user in usersToBlock)
         {
-            user.Statuses = Status.Blocked;
+            user.Status = Status.Blocked;
         }
         
         db.SaveChanges();
@@ -52,9 +52,9 @@ public class UsersController(ApplicationContext db) : Controller
 
         foreach (var user in usersToUnblock)
         {
-            if(user.Statuses == Status.Blocked)
+            if(user.Status == Status.Blocked)
             {
-                user.Statuses = Status.Active;
+                user.Status = Status.Active;
             }
         }
         

@@ -27,7 +27,7 @@ public class AuthController(ApplicationContext db) : Controller
         if (!isPasswordValid)
             return Unauthorized("Wrong email or password");
         
-        if (user.Statuses == Status.Blocked)
+        if (user.Status == Status.Blocked)
             return Forbid("Account is blocked");
         
         user.LastLoginTime = DateTime.UtcNow;
