@@ -103,4 +103,18 @@ public class AuthController(IUserService userService, IJwtService jwtService, IU
 
         return Ok("Reset link sent to your email.");
     }
+    
+    [HttpGet("Auth/Login")]
+    [AllowAnonymous]
+    public IActionResult LoginView()
+    {
+        return View("Login");
+    }
+
+    [HttpGet("Auth/Register")]
+    [AllowAnonymous]
+    public IActionResult RegisterView()
+    {
+        return View("Register");
+    }
 }

@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace Itransition_Task4.Controllers;
 
 [Controller]
-[Authorize(Policy = "ActiveUser")]
 public class UsersController(IUserService userService) : Controller
 {
     public IActionResult Index() => View();
     
     [HttpGet]
+    [Authorize(Policy = "ActiveUser")]
+
     public async Task<JsonResult> GetUsers()
     {
         var users = await userService.GetUsersListAsync();
@@ -20,6 +21,8 @@ public class UsersController(IUserService userService) : Controller
     }
 
     [HttpPost]
+    [Authorize(Policy = "ActiveUser")]
+
     public async Task<IActionResult> Block([FromBody] List<int> ids)
     {
         if (ids == null || !ids.Any()) 
@@ -33,6 +36,7 @@ public class UsersController(IUserService userService) : Controller
     
     
     [HttpPost]
+    [Authorize(Policy = "ActiveUser")]
     public async Task<IActionResult> Unblock([FromBody] List<int> ids)
     {
         if (ids == null || !ids.Any()) 
@@ -45,6 +49,7 @@ public class UsersController(IUserService userService) : Controller
     }
     
     [HttpDelete]
+    [Authorize(Policy = "ActiveUser")]
     public async Task<IActionResult> Delete([FromBody] List<int> ids)
     {
         if (ids == null || !ids.Any()) 
