@@ -6,10 +6,10 @@ using Itransition_Task4.Models;
 using Itransition_Task4.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Itransition_Task4.Controllers;
 
+[ApiController]
 public class AuthController(IUserService userService, IJwtService jwtService, IUserRepository userRepository, IEmailService emailService) : Controller
 {
     [HttpPost("login")]
@@ -22,7 +22,10 @@ public class AuthController(IUserService userService, IJwtService jwtService, IU
         var user = allUsers.FirstOrDefault(u => u.Email == model.Email);
         
         if (user == null || !PasswordHasher.VerifyPassword(model.Password, user.HashedPassword))
+        {
+            Console.WriteLine("User not found in DB");
             return Unauthorized("Wrong email or password");
+        }
         
         if (user.Status == Status.Blocked)
             return Forbid("Account is blocked");
@@ -34,37 +37,37 @@ public class AuthController(IUserService userService, IJwtService jwtService, IU
     }
     
     [HttpPost("register")]
-    [AllowAnonymous]
     public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
     {
-        if (!ModelState.IsValid) return BadRequest(ModelState);
-
-        if (model.Password != model.ConfirmPassword)
-            return BadRequest("Passwords do not match");
-        
-        var allUsers = await userRepository.GetAllAsync();
-        if (allUsers.Any(u => u.Email == model.Email))
-            return BadRequest("Email is already registered");
-        
-        var token = Guid.NewGuid().ToString();
-        
-        var user = new User
+        try 
         {
-            Name = model.Name,
-            Email = model.Email,
-            HashedPassword = PasswordHasher.HashPassword(model.Password),
-            Status = Status.Unverified,
-            RegistrationDate = DateTime.UtcNow
-        };
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
-        await userRepository.AddAsync(user);
+            var allUsers = await userRepository.GetAllAsync();
+            if (allUsers.Any(u => u.Email == model.Email)) 
+                return BadRequest("This email is already in the database");
 
-        var confirmUrl = $"http://localhost:5121/confirm-email?token={token}";
-        
-        await emailService.SendEmailAsync(user.Email, "Confirm your account",
-            $"Please confirm your registration by <a href='{confirmUrl}'>clicking here</a>.");
+            var token = Guid.NewGuid().ToString();
+            var user = new User {
+                Name = model.Name,
+                Email = model.Email,
+                HashedPassword = PasswordHasher.HashPassword(model.Password),
+                Status = Status.Unverified,
+                ConfirmationToken = token
+            };
 
-        return Ok("User registered. Please check your email.");
+            await userRepository.AddAsync(user);
+
+            var confirmUrl = $"{Request.Scheme}://{Request.Host}/confirm-email?token={token}";
+            await emailService.SendEmailAsync(user.Email, "Confirm", $"Link: {confirmUrl}");
+
+            return Ok("Success! Check email.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка при регистрации: {ex.Message}");
+            return StatusCode(500, ex.Message);
+        }
     }
     
     [HttpGet("confirm-email")]
@@ -116,5 +119,29 @@ public class AuthController(IUserService userService, IJwtService jwtService, IU
     public IActionResult RegisterView()
     {
         return View("Register");
+    }
+    
+    [HttpGet("reset-password")]
+    [AllowAnonymous]
+    public IActionResult ResetPasswordView([FromQuery] string token)
+    {
+        ViewData["Token"] = token;
+        return View("ResetPassword");
+    }
+
+    [HttpPost("reset-password-confirm")]
+    [AllowAnonymous]
+    public async Task<IActionResult> ResetPasswordConfirm([FromBody] ResetPasswordViewModel model)
+    {
+        var allUsers = await userRepository.GetAllAsync();
+        var user = allUsers.FirstOrDefault(u => u.ResetToken == model.Token);
+
+        if (user == null) return BadRequest("Invalid token");
+
+        user.HashedPassword = PasswordHasher.HashPassword(model.NewPassword);
+        user.ResetToken = null;
+        await userRepository.UpdateRangeAsync([user]);
+
+        return Ok("Password updated successfully");
     }
 }

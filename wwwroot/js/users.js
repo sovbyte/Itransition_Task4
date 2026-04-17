@@ -61,7 +61,6 @@ async function loadUsers() {
     }).join('');
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
     loadUsers();
 

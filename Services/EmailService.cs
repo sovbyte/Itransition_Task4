@@ -14,24 +14,25 @@ public class EmailService : IEmailService
     {
         var emailMessage = new MimeMessage();
 
-        emailMessage.From.Add(new MailboxAddress("Admin Tool", Environment.GetEnvironmentVariable("SMTP_USER")));
+        var smtpUser = Environment.GetEnvironmentVariable("SMTP_USER") ?? "";
+        var smtpPass = Environment.GetEnvironmentVariable("SMTP_PASS") ?? "";
+        var smtpServer = Environment.GetEnvironmentVariable("SMTP_SERVER") ?? "";
+        var smtpPort = Environment.GetEnvironmentVariable("SMTP_PORT") ?? "587";
+
+        emailMessage.From.Add(new MailboxAddress("Admin Tool", smtpUser));
         emailMessage.To.Add(new MailboxAddress("", email));
         emailMessage.Subject = subject;
         emailMessage.Body = new TextPart("html") { Text = message };
 
         using var client = new SmtpClient();
         
-        await client.ConnectAsync(
-            Environment.GetEnvironmentVariable("SMTP_SERVER"), 
-            int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT") ?? "587"), 
-            MailKit.Security.SecureSocketOptions.StartTls
-        );
+        if (string.IsNullOrEmpty(smtpUser) || string.IsNullOrEmpty(smtpPass))
+        {
+            throw new Exception("SMTP credentials are missing in .env file!");
+        }
 
-        await client.AuthenticateAsync(
-            Environment.GetEnvironmentVariable("SMTP_USER"), 
-            Environment.GetEnvironmentVariable("SMTP_PASS")
-        );
-
+        await client.ConnectAsync(smtpServer, int.Parse(smtpPort), MailKit.Security.SecureSocketOptions.StartTls);
+        await client.AuthenticateAsync(smtpUser, smtpPass);
         await client.SendAsync(emailMessage);
         await client.DisconnectAsync(true);
     }
