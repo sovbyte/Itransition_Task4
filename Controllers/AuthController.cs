@@ -100,7 +100,7 @@ public class AuthController(IUserService userService, IJwtService jwtService, IU
         user.ResetToken = token; 
         await userRepository.UpdateRangeAsync([user]);
 
-        var resetUrl = $"http://localhost:5121/reset-password?token={token}";
+        var resetUrl = $"{Request.Scheme}://{Request.Host}/reset-password?token={token}";
         await emailService.SendEmailAsync(user.Email, "Reset Password", 
             $"Click <a href='{resetUrl}'>here</a> to reset your password.");
 
