@@ -1,4 +1,8 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+﻿USER root
+RUN apt-get update && apt-get install -y libgssapi-krb5-2
+USER $APP_UID
+
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 COPY *.csproj ./
