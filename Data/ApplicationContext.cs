@@ -10,43 +10,8 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // modelBuilder.Entity<User>().HasData(
-        //     new User
-        //     {
-        //         Id = 1,
-        //         Name = "Admin",
-        //         Email = "admin@example.com",
-        //         HashedPassword = PasswordHasher.HashPassword("a"),
-        //         LastLoginTime = DateTime.UtcNow,
-        //         Status = Status.Active
-        //     },
-        //     new User
-        //     {
-        //         Id = 2,
-        //         Name = "John Doe",
-        //         Email = "john@example.com",
-        //         HashedPassword = PasswordHasher.HashPassword("a"),
-        //         LastLoginTime = DateTime.UtcNow.AddDays(-1),
-        //         Status = Status.Active
-        //     },
-        //     new User
-        //     {
-        //         Id = 3,
-        //         Name = "Jane Smith",
-        //         Email = "jane@example.com",
-        //         HashedPassword = PasswordHasher.HashPassword("a"),
-        //         LastLoginTime = DateTime.UtcNow.AddHours(-5),
-        //         Status = Status.Active
-        //     },
-        //     new User
-        //     {
-        //         Id = 4,
-        //         Name = "Ivan Ivanov",
-        //         Email = "ivan@example.com",
-        //         HashedPassword = PasswordHasher.HashPassword("a"),
-        //         LastLoginTime = DateTime.UtcNow.AddDays(-3),
-        //         Status = Status.Active
-        //     });
+        modelBuilder.Entity<User>().HasData(DataSeeder.GetPredefinedUsers());
+        
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasIndex(e => e.Email).IsUnique();
