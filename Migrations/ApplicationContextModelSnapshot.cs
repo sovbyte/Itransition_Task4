@@ -63,6 +63,908 @@ namespace Itransition_Task4.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "Joyce72@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Marcel Connelly",
+                            RegistrationDate = new DateTime(2026, 1, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "Joaquin.Hammes@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Noemy Feest",
+                            RegistrationDate = new DateTime(2026, 1, 5, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "Camylle_Borer53@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Rashad Mayert",
+                            RegistrationDate = new DateTime(2026, 3, 14, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Email = "Jorge30@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Caleb Ullrich",
+                            RegistrationDate = new DateTime(2026, 3, 25, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Email = "Nelda2@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Abel Leuschke",
+                            RegistrationDate = new DateTime(2026, 3, 21, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Email = "Olin.Green@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Lisandro Buckridge",
+                            RegistrationDate = new DateTime(2026, 3, 3, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Email = "Meghan1@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Jordyn Bechtelar",
+                            RegistrationDate = new DateTime(2026, 1, 28, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Email = "Jamaal.Anderson51@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Annette Raynor",
+                            RegistrationDate = new DateTime(2026, 1, 2, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Email = "Anika91@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Rhoda Ankunding",
+                            RegistrationDate = new DateTime(2026, 2, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Email = "Gail_Conroy@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Garrett Morissette",
+                            RegistrationDate = new DateTime(2026, 2, 11, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Email = "Murray_Aufderhar33@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Eli Upton",
+                            RegistrationDate = new DateTime(2026, 1, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Email = "Oral21@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Beatrice Klein",
+                            RegistrationDate = new DateTime(2026, 2, 22, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Email = "Michaela_Green@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Wyman Runolfsson",
+                            RegistrationDate = new DateTime(2026, 1, 4, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Email = "Daisha21@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Ezekiel Ward",
+                            RegistrationDate = new DateTime(2026, 2, 13, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Email = "Bennett75@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Augustus Zemlak",
+                            RegistrationDate = new DateTime(2026, 1, 2, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Email = "Davin.Walter54@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Allie Spencer",
+                            RegistrationDate = new DateTime(2026, 3, 5, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Email = "Aletha_Feeney78@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Claudine Gulgowski",
+                            RegistrationDate = new DateTime(2026, 3, 31, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Email = "Kayley59@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Ciara Grimes",
+                            RegistrationDate = new DateTime(2026, 3, 31, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Email = "Jalyn_Littel12@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Irving Heidenreich",
+                            RegistrationDate = new DateTime(2026, 1, 2, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Email = "Guido.McLaughlin@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Cheyenne Weimann",
+                            RegistrationDate = new DateTime(2026, 4, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Email = "Karelle_Morissette74@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Sigmund D'Amore",
+                            RegistrationDate = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Email = "Shyann27@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Jules Schneider",
+                            RegistrationDate = new DateTime(2026, 3, 26, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Email = "Quinten_Thompson94@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Lucie Bode",
+                            RegistrationDate = new DateTime(2026, 4, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Email = "Cory_Nicolas@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Vladimir Crist",
+                            RegistrationDate = new DateTime(2026, 3, 23, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Email = "Cole_Lehner19@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Fatima Lebsack",
+                            RegistrationDate = new DateTime(2026, 1, 7, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Email = "Celestine88@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Ana Emard",
+                            RegistrationDate = new DateTime(2026, 2, 7, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Email = "Zora.Hermiston18@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Jacey Runolfsdottir",
+                            RegistrationDate = new DateTime(2026, 3, 2, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Email = "Ariel.Kovacek91@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Lera Howell",
+                            RegistrationDate = new DateTime(2026, 4, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Email = "Aidan_Toy@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Agnes Gusikowski",
+                            RegistrationDate = new DateTime(2026, 4, 10, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Email = "Alexandra.Heaney@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Elenor Weimann",
+                            RegistrationDate = new DateTime(2026, 2, 23, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Email = "Lelah.Nolan@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Freda Heathcote",
+                            RegistrationDate = new DateTime(2026, 1, 11, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Email = "Wilfred57@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Bridget Spinka",
+                            RegistrationDate = new DateTime(2026, 1, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Email = "Tyrell.Davis@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Christa Nolan",
+                            RegistrationDate = new DateTime(2026, 3, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Email = "Helena79@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Sabina Hermiston",
+                            RegistrationDate = new DateTime(2026, 2, 24, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Email = "Wellington31@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Margarett Jenkins",
+                            RegistrationDate = new DateTime(2026, 3, 24, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Email = "Neva_Klein85@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Matteo Hamill",
+                            RegistrationDate = new DateTime(2026, 2, 12, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Email = "Gust.Abbott30@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Hector Cruickshank",
+                            RegistrationDate = new DateTime(2026, 3, 14, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Email = "Philip_Kohler50@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Harold Boyer",
+                            RegistrationDate = new DateTime(2026, 4, 6, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Email = "Rory6@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Sharon Nader",
+                            RegistrationDate = new DateTime(2026, 4, 2, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Email = "Cara37@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Linwood VonRueden",
+                            RegistrationDate = new DateTime(2026, 1, 2, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Email = "Terence.Shields59@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Macy Bahringer",
+                            RegistrationDate = new DateTime(2026, 3, 22, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Email = "Abbey53@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Edwin Little",
+                            RegistrationDate = new DateTime(2026, 2, 23, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Email = "Sienna_Herman@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Milo Turcotte",
+                            RegistrationDate = new DateTime(2026, 3, 27, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Email = "Asia_Schmeler18@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Trudie Schroeder",
+                            RegistrationDate = new DateTime(2026, 4, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Email = "Sven82@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Rachel Schultz",
+                            RegistrationDate = new DateTime(2026, 2, 28, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Email = "Rosella.Heidenreich10@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Terrill VonRueden",
+                            RegistrationDate = new DateTime(2026, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Email = "Alexandra.Luettgen@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Sharon Langworth",
+                            RegistrationDate = new DateTime(2026, 1, 21, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Email = "Jamal_Homenick@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Neal Buckridge",
+                            RegistrationDate = new DateTime(2026, 1, 29, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Email = "Justus87@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Zane Kshlerin",
+                            RegistrationDate = new DateTime(2026, 3, 31, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Email = "Hailee.Simonis82@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Violet Halvorson",
+                            RegistrationDate = new DateTime(2026, 3, 26, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Email = "Shad_Connelly@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Otis Towne",
+                            RegistrationDate = new DateTime(2026, 3, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Email = "Frederique10@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Jacey Pagac",
+                            RegistrationDate = new DateTime(2026, 2, 22, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Email = "Candido.Murazik81@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Felipe Koss",
+                            RegistrationDate = new DateTime(2026, 2, 4, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Email = "Kay92@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Eddie Goyette",
+                            RegistrationDate = new DateTime(2026, 3, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Email = "Hilma47@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Lee Kreiger",
+                            RegistrationDate = new DateTime(2026, 3, 11, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Email = "Miracle.Hodkiewicz@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Unique Boyle",
+                            RegistrationDate = new DateTime(2026, 1, 17, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Email = "Judson.Hansen@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Lois Gislason",
+                            RegistrationDate = new DateTime(2026, 2, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Email = "Dandre.Emard89@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Alvah Casper",
+                            RegistrationDate = new DateTime(2026, 2, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Email = "Cara_Marquardt86@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Alisa Stoltenberg",
+                            RegistrationDate = new DateTime(2026, 2, 27, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Email = "Bradly12@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Steve Stroman",
+                            RegistrationDate = new DateTime(2026, 1, 9, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Email = "Lynn.Murazik@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Camille Friesen",
+                            RegistrationDate = new DateTime(2026, 3, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Email = "Jedediah94@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Shayne Mante",
+                            RegistrationDate = new DateTime(2026, 3, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Email = "Jaiden61@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Bernard Turner",
+                            RegistrationDate = new DateTime(2026, 1, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Email = "Teresa81@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Alysha Beahan",
+                            RegistrationDate = new DateTime(2026, 1, 21, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Email = "Mohammad14@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Shaun Effertz",
+                            RegistrationDate = new DateTime(2026, 2, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Email = "Alize_Daugherty1@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Corbin Johns",
+                            RegistrationDate = new DateTime(2026, 1, 24, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Email = "Alice3@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Maryjane Kirlin",
+                            RegistrationDate = new DateTime(2026, 2, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Email = "Marguerite.Mueller7@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Viviane Windler",
+                            RegistrationDate = new DateTime(2026, 2, 9, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Email = "Reta.Roob@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Harmony Pollich",
+                            RegistrationDate = new DateTime(2026, 1, 2, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Email = "Ladarius.Renner@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Sarah Lind",
+                            RegistrationDate = new DateTime(2026, 4, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Email = "Jacynthe.Prohaska@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Chandler Hills",
+                            RegistrationDate = new DateTime(2026, 4, 6, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Email = "Bethany_Mosciski@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Name Ritchie",
+                            RegistrationDate = new DateTime(2026, 2, 24, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Email = "Lorena.Thompson@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Gardner Muller",
+                            RegistrationDate = new DateTime(2026, 4, 7, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Email = "Ashly10@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Noemi Hirthe",
+                            RegistrationDate = new DateTime(2026, 3, 23, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Email = "Makenna45@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Tabitha Wilkinson",
+                            RegistrationDate = new DateTime(2026, 1, 9, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 76,
+                            Email = "Marcella.Will82@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Rahul Roob",
+                            RegistrationDate = new DateTime(2026, 3, 22, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Email = "Hobart.Brown13@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Kane Kuhn",
+                            RegistrationDate = new DateTime(2026, 3, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 78,
+                            Email = "Michael_Rippin54@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Elta Boyle",
+                            RegistrationDate = new DateTime(2026, 3, 23, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 79,
+                            Email = "Floyd.Emmerich9@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Tiara Dare",
+                            RegistrationDate = new DateTime(2026, 3, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 80,
+                            Email = "Elvie87@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Alfonso Mohr",
+                            RegistrationDate = new DateTime(2026, 3, 30, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 81,
+                            Email = "Allen_Rutherford74@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Vicente Mante",
+                            RegistrationDate = new DateTime(2026, 4, 5, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 82,
+                            Email = "Bernita.Hagenes3@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Darren Sawayn",
+                            RegistrationDate = new DateTime(2026, 1, 23, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 83,
+                            Email = "Milford_OReilly@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Dorthy Ortiz",
+                            RegistrationDate = new DateTime(2026, 3, 12, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 84,
+                            Email = "Jannie.OReilly82@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Felipa Kassulke",
+                            RegistrationDate = new DateTime(2026, 3, 11, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 85,
+                            Email = "Richard96@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Larue Lakin",
+                            RegistrationDate = new DateTime(2026, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 86,
+                            Email = "Doyle60@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Marco Kilback",
+                            RegistrationDate = new DateTime(2026, 2, 12, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 87,
+                            Email = "Anissa85@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Germaine Hodkiewicz",
+                            RegistrationDate = new DateTime(2026, 2, 9, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 88,
+                            Email = "Ansley35@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Elta Spinka",
+                            RegistrationDate = new DateTime(2026, 3, 13, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 89,
+                            Email = "Kade20@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Chyna Spencer",
+                            RegistrationDate = new DateTime(2026, 1, 27, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 90,
+                            Email = "Carolyne_Berge@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Ferne Corkery",
+                            RegistrationDate = new DateTime(2026, 3, 18, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 91,
+                            Email = "Alphonso_Wolff@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Julien Lehner",
+                            RegistrationDate = new DateTime(2026, 3, 11, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 92,
+                            Email = "Obie60@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Bridget Mills",
+                            RegistrationDate = new DateTime(2026, 2, 16, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 93,
+                            Email = "Anissa79@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Haylee Stark",
+                            RegistrationDate = new DateTime(2026, 2, 7, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 94,
+                            Email = "Stephany.Flatley@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Morgan Cormier",
+                            RegistrationDate = new DateTime(2026, 2, 26, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 95,
+                            Email = "Evie40@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Peggie Conroy",
+                            RegistrationDate = new DateTime(2026, 3, 27, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 96,
+                            Email = "Karen.Macejkovic@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Royal McGlynn",
+                            RegistrationDate = new DateTime(2026, 3, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        },
+                        new
+                        {
+                            Id = 97,
+                            Email = "Nyasia.Fritsch@hotmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Arden Kohler",
+                            RegistrationDate = new DateTime(2026, 2, 22, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 98,
+                            Email = "Pearl55@yahoo.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Stevie Feil",
+                            RegistrationDate = new DateTime(2026, 1, 29, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 99,
+                            Email = "Lulu.Okuneva93@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Kylie Bins",
+                            RegistrationDate = new DateTime(2026, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 2
+                        },
+                        new
+                        {
+                            Id = 100,
+                            Email = "Sim39@gmail.com",
+                            HashedPassword = "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu",
+                            Name = "Cierra McLaughlin",
+                            RegistrationDate = new DateTime(2026, 3, 31, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Status = 1
+                        });
                 });
 #pragma warning restore 612, 618
         }
