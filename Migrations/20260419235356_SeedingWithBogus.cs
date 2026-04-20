@@ -119,6 +119,7 @@ namespace Itransition_Task4.Migrations
                     { 99, null, "Lulu.Okuneva93@gmail.com", "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu", null, "Kylie Bins", new DateTime(2026, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc), null, 2 },
                     { 100, null, "Sim39@gmail.com", "$2a$11$u1epTMFLWNZ39L6QNgJqDey.8E5vcmHTspZtuKYxNN8dt7k1XVUuu", null, "Cierra McLaughlin", new DateTime(2026, 3, 31, 0, 0, 0, 0, DateTimeKind.Utc), null, 1 }
                 });
+            migrationBuilder.Sql("SELECT setval(pg_get_serial_sequence('\"Users\"', 'Id'), (SELECT MAX(Id) FROM Users));");
         }
 
         /// <inheritdoc />
