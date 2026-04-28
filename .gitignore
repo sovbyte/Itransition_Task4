@@ -24,3 +24,6 @@ Thumbs.db
 *.png
 Task4.md
 *.env
+/Migrations/20260419235356_SeedingWithBogus.Designer.cs
+/Migrations/20260420002214_FinalBogusSeed.cs
+/Migrations/20260420002214_FinalBogusSeed.Designer.cs
